@@ -69,7 +69,7 @@ export default function Projects() {
       title: "Calculadora de Convoluciones",
       tech: [SiPython, SiFlask, SiHtml5, SiCss3],
       link: "",
-      cover: "/Calculadora de Convoluciones.png",
+      cover: "/conv.png",
       background: "bg-purple-600",
     },
     {
