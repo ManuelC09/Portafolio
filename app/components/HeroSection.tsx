@@ -55,7 +55,7 @@ export default function HeroSection() {
       </div> */}
 
   <div className="flex items-center justify-center w-80 h-80 relative rounded-full bg-opacity-50 backdrop-filter backdrop-blur-lg">
-          <img className="max-w-full max-h-full rounded-full" src="https://i.imgur.com/4U5tBXC.png" alt="Manuel" />
+          <img className="max-w-full max-h-full rounded-full" src="perfil.png" alt="Manuel" />
           <div className="glow absolute top-[40%] right-1/2 -z-10"></div>
         </div>
     </div>

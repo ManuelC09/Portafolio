@@ -10,6 +10,7 @@ import {
   SiArduino,
   SiC,
   SiPostgresql,
+  SiWix,
   SiSqlite,
   SiMysql,
   SiFlask,
@@ -23,10 +24,10 @@ import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 export default function Projects() {
   const projects = [
     {
-      title: "OxiPulso",
-      tech: [SiPython, SiFlask, SiPostgresql, SiHtml5, SiTailwindcss, SiArduino, SiIobroker],
-      link: "",
-      cover: "/OxiPulso.png",
+      title: "Glowstar Lighting",
+      tech: [SiWix],
+      link: "https://www.glowstarlighting.com/",
+      cover: "/glow.png",
       background: "bg-purple-600",
     },
     {
@@ -34,6 +35,20 @@ export default function Projects() {
       tech: [SiPython, SiFlask, SiMysql, SiHtml5, SiCss3, SiArduino],
       link: "",
       cover: "/hera.png",
+      background: "bg-purple-600",
+    },
+    {
+      title: "OxiPulso",
+      tech: [SiPython, SiFlask, SiPostgresql, SiHtml5, SiTailwindcss, SiArduino, SiIobroker],
+      link: "",
+      cover: "/OxiPulso.png",
+      background: "bg-purple-600",
+    },
+    {
+      title: "Crown Exteriors Ltd",
+      tech: [SiWix],
+      link: "https://www.crownexteriorsyeg.ca/",
+      cover: "/crow.png",
       background: "bg-purple-600",
     },
     {
@@ -78,27 +93,25 @@ export default function Projects() {
         text="Proyectos"
         className="flex flex-col items-center justify-center"
       />
-
+  
       <div className="grid grid-cols-1 sm:grid-cols-2 pt-20 gap-5">
         {projects.map((project, index) => {
           return (
             <Link href={project.link} key={index}>
-              <div className={cn("p-5 rounded-md border border-purple-600")}>
+              <div className="p-5 rounded-md border border-purple-600 h-full w-full">
                 <DirectionAwareHover
                   imageUrl={project.cover}
-                  className="w-full space-y-5 cursor-pointer"
+                  className="w-full h-full space-y-5 cursor-pointer"
                 >
                   <div className="space-y-5">
                     <h1 className="text-2xl font-bold">{project.title}</h1>
-
+  
                     <div className="flex items-center gap-5">
-
                       {project.tech.map((Icon, index) => {
                         return <Icon className="w-8 h-8" key={index} />;
                       })}
-
                     </div>
-
+  
                   </div>
                 </DirectionAwareHover>
               </div>
@@ -108,4 +121,5 @@ export default function Projects() {
       </div>
     </div>
   );
+  
 }
