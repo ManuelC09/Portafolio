@@ -16,13 +16,42 @@ import {
   SiFlask,
   SiDjango,
   SiIobroker,
-  SiTailwindcss
+  SiTailwindcss,
+  SiWebflow
 } from "react-icons/si";
 import { cn } from "@/utils/cn";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 
 export default function Projects() {
   const projects = [
+    {
+      title: "Media Numbers Productions",
+      tech: [SiWebflow],
+      link: "https://www.medianumbersproductions.com/",
+      cover: "/MNP.png",
+      background: "bg-purple-600",
+    },
+    {
+      title: "Assar Hub",
+      tech: [SiWebflow],
+      link: "https://www.assarbizhub.com//",
+      cover: "/Assar.png",
+      background: "bg-purple-600",
+    },
+    {
+      title: "Quality Wealth Financial Solutions",
+      tech: [SiWebflow],
+      link: "https://www.yourhubofwealth.ca/",
+      cover: "/QWFS.png",
+      background: "bg-purple-600",
+    },
+    {
+      title: "Mr & Mrs Singh Kitchen",
+      tech: [SiWebflow],
+      link: "https://www.mrsinghkitchen.com/",
+      cover: "/Mr&MrsSighKitchen.png",
+      background: "bg-purple-600",
+    },
     {
       title: "Glowstar Lighting",
       tech: [SiWix],

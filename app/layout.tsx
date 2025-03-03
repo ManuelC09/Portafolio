@@ -5,7 +5,7 @@ import "./globals.css";
 const SpaceGrotesk = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://portafolio-eosin-seven.vercel.app/"),
+	metadataBase: new URL("https://manuelc.dev/"),
 
 	title: "Manuel Conrado",
 	authors: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		title: "Manuel Conrado Portafolio",
 		description:
 			"Soy un desarrollador de software junior y estudiante de ingeniería electrónica. Me encanta aprender y compartir conocimiento. Aquí encontrarás información sobre mis proyectos, habilidades y experiencia.",
-		url: "https://portafolio-eosin-seven.vercel.app/",
+		url: "https://manuelc.dev/",
 		siteName: "Manuel Conrado | Portafolio",
 		images: "/perfil.png",
 		type: "website",
@@ -33,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+		<head>
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer async></script>
+		</head>
       <body className={SpaceGrotesk.className}>{children}</body>
     </html>
   );

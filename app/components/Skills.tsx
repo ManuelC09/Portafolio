@@ -14,7 +14,10 @@ import { SiGithub,
     SiSqlite, 
     SiMysql, 
     SiFlask, 
-    SiDjango} from "react-icons/si";
+    SiDjango,
+    SiWix,
+    SiWebflow,
+    SiWordpress } from "react-icons/si";
 
 export default function Skills() {
 
@@ -77,7 +80,21 @@ export default function Skills() {
             text: "Sqlite",
             Icon: SiSqlite,
         },
+        
+        {
+            text: "Webflow",
+            Icon: SiWebflow,
+        },
 
+        {
+            text: "Wordpress",
+            Icon: SiWordpress,
+        },
+
+        {
+            text: "Wix",
+            Icon: SiWix,
+        },
 
     ]
 

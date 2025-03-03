@@ -1,24 +1,34 @@
 "use client";
 import React, { useState, FormEvent } from "react";
 import Title from "./Title";
+import Turnstile from "./Turnstile";
 
 interface FormData {
   email: string;
   asunto: string;
   mensaje: string;
+  token: string; 
 }
 
 export default function EmailSection() {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [submissionError, setSubmissionError] = useState(false);
+  const [token, setToken] = useState<string | null>(null); 
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!token) {
+      setSubmissionError(true);
+      return;
+    }
+
     const data: FormData = {
       email: e.currentTarget.email.value,
       asunto: e.currentTarget.asunto.value,
       mensaje: e.currentTarget.mensaje.value,
+      token, 
     };
+
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
@@ -32,10 +42,7 @@ export default function EmailSection() {
 
     try {
       const response = await fetch(endpoint, options);
-      const resData = await response.json();
-
       if (response.status === 200) {
-        console.log("Message sent.");
         setEmailSubmitted(true);
         setSubmissionError(false);
       } else {
@@ -53,17 +60,16 @@ export default function EmailSection() {
         <Title text="Contácto" className="flex flex-col mt-8 items-center justify-center" />
       </div>
       <section id="contact" className="grid md:grid-cols-2 pt-20 gap-4 relative">
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
         <div className="z-10">
           <h5 className="text-xl font-bold text-white my-2">Contáctame</h5>
           <p className="text-[#ADB7BE] mb-4 max-w-md">
             Estoy disponible para colaboraciones, proyectos y cualquier otra consulta.
           </p>
           {emailSubmitted && (
-            <p className="text-purple-600 text-sm mt-2">Email sent successfully!</p>
+            <p className="text-purple-600 text-sm mt-2">Email enviado exitosamente!</p>
           )}
           {submissionError && (
-            <p className="text-red-600 text-sm mt-2">Error sending email. Please try again later.</p>
+            <p className="text-red-600 text-sm mt-2">Error al enviar el email. Intenta nuevamente.</p>
           )}
         </div>
         <div>
@@ -104,6 +110,12 @@ export default function EmailSection() {
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Escribe tu mensaje aquí..."
               />
+            </div>
+            <div className="mb-6">
+            <Turnstile
+              sitekey="0x4AAAAAAAylgF1hbFJe2FNW"
+              onVerify={(newToken) => setToken(newToken)}
+            />
             </div>
             <button
               type="submit"

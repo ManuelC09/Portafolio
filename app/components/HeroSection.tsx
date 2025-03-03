@@ -6,7 +6,7 @@ export default function HeroSection() {
     <div className="min-h-[60vh] flex flex-col-reverse gap-14 lg:gap-0 lg:flex-row items-center justify-between">
       <div className="space-y-10 text-center lg:text-left">
         <h1 className="text-4xl lg:text-7xl font-bold">
-          Bienvenidos a mi portafolio! 👋 <br />{""}
+          Bienvenidos a mi <span className="text-purple-500">portafolio!</span> 👋<br />{""}
           <span className="underline underline-offset-8 decoration-purple-500">
             Soy Manuel
           </span>
